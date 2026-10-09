@@ -85,7 +85,6 @@ SetupJSON()
 SetupKDTree()
 SetupSanitizers()
 SetupYamlCpp()
-SetupZipIos()
 SetupClipper2()
 
 find_package(Qt6 REQUIRED COMPONENTS Core)

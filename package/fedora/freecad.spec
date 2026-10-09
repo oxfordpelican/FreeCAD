@@ -1,6 +1,4 @@
 # Some configuration options for other environments
-# rpmbuild --without=bundled_zipios: don't use bundled version of zipios++
-%bcond_without  bundled_zipios
 # rpmbuild --with=bundled_pycxx:  use bundled version of pycxx
 %bcond_with bundled_pycxx
 # rpmbuild --without=bundled_smesh:  don't use bundled version of Salome's Mesh
@@ -55,9 +53,6 @@ BuildRequires:boost-devel Coin4-devel eigen3-devel freeimage-devel libglvnd-deve
 #pcl-devel
 %if %{without bundled_smesh}
 BuildRequires:  smesh-devel
-%endif
-%if %{without bundled_zipios}
-BuildRequires:  zipios++-devel
 %endif
 %if %{without bundled_pycxx}
 BuildRequires:  python3-pycxx-devel
@@ -157,9 +152,6 @@ Development file for OndselSolver
     %endif
     %if %{without bundled_smesh}
         -DFREECAD_USE_EXTERNAL_SMESH=TRUE \
-    %endif
-    %if %{without bundled_zipios}
-        -DFREECAD_USE_EXTERNAL_ZIPIOS=TRUE \
     %endif
     %if %{with tests}
         -DENABLE_DEVELOPER_TESTS=TRUE \
